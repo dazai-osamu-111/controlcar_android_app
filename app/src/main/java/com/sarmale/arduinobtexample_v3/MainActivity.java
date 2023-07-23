@@ -291,7 +291,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Audio Record permission denied");
             }
         }
-        enableBluetooth();
     }
 
     public void sendData(Character data) {
@@ -327,9 +326,9 @@ public class MainActivity extends AppCompatActivity {
                 } else if (text.contains("phải") || text.contains("Phải")) {
                     sendData(ACTION_RIGHT);
                     Log.d(TAG, "right");
-                } else if (text.contains("dò") || text.contains("Dò")) {
+                } else if (text.contains("đen") || text.contains("Đen")) {
                     sendData(ACTION_TRACK);
-                    Log.d(TAG, "track");
+                    Log.d(TAG, "Đường đen");
                 }
             }
         }

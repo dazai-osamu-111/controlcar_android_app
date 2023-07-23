@@ -15,93 +15,95 @@
         android:text="Connect to HC-06" />
 
     <TextView
-        android:id="@+id/tvStatus"
+        android:id="@+id/Status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="18dp"
         android:text="Status: not connected"
         android:textColor="#FC0000"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvStatus2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Status: not connected"
-        android:textColor="#FC0000"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:layout_marginTop="50dp">
 
 
 
-        <Button
+        <ImageButton
             android:id="@+id/upBtn"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="Tiến lên"
+            android:layout_width="66dp"
+            android:layout_height="77dp"
+            android:background="@drawable/mui_ten_len"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+             />
 
-        <Button
-            android:id="@+id/leftBtn"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:text="Rẽ Trái"
+        <ImageButton
+            android:id="@+id/downBtn"
+            android:layout_width="66dp"
+            android:layout_height="77dp"
+            android:background="@drawable/mui_ten_len"
+            tools:ignore="MissingConstraints"
+            android:rotation="-180"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/upBtn" />
 
-        <Button
+        <ImageButton
             android:id="@+id/rightBtn"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:text="Rẽ Phải"
+            android:layout_width="66dp"
+            android:layout_height="77dp"
+            android:background="@drawable/mui_ten_len"
+            tools:ignore="MissingConstraints"
+            android:rotation="90"
+            app:layout_constraintStart_toStartOf="@id/upBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/leftBtn"
-            app:layout_constraintTop_toBottomOf="@id/upBtn" />
+            app:layout_constraintTop_toTopOf="@id/upBtn"
+            app:layout_constraintBottom_toBottomOf="@id/downBtn"
+            />
 
-        <Button
-            android:id="@+id/down"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:text="Lùi lại"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rightBtn" />
+        <ImageButton
+            android:id="@+id/leftBtn"
+            android:layout_width="66dp"
+            android:layout_height="77dp"
+            android:background="@drawable/mui_ten_len"
+            tools:ignore="MissingConstraints"
+            android:rotation="-90"
+            app:layout_constraintEnd_toStartOf="@id/upBtn"
+            app:layout_constraintTop_toBottomOf="@id/upBtn"
+            app:layout_constraintBottom_toTopOf="@id/downBtn"
 
-        <Button
-            android:id="@+id/track"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Đường đen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/down" />
+            />
 
-        <Button
-            android:id="@+id/pauseBtn"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="172dp"
-            android:gravity="center"
-            android:text="Dừng"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <Button-->
+<!--            android:id="@+id/track"-->
+<!--            android:layout_width="153dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Đường đen"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.07"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            tools:ignore="MissingConstraints"-->
+
+<!--            tools:layout_editor_absoluteY="151dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/pauseBtn"-->
+<!--            android:layout_width="153dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="156dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Dừng"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout

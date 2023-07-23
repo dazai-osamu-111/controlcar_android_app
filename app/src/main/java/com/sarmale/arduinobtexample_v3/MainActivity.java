@@ -33,7 +33,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "BluetoothExample";
+    private static final String TAG = "ControlBluetoothCar";
     private static final int REQUEST_ENABLE_BLUETOOTH = 1;
     private static final int PERMISSION_REQUEST_CODE = 2;
     private static final int MY_PERMISSIONS_REQUEST_RECORD_AUDIO = 3;
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        findViewById(R.id.down).setOnClickListener(
+        findViewById(R.id.downBtn).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -128,23 +128,23 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        findViewById(R.id.track).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        sendData(ACTION_TRACK);
-                    }
-                }
-        );
-
-        findViewById(R.id.pauseBtn).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        sendData(PAUSE);
-                    }
-                }
-        );
+//        findViewById(R.id.track).setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        sendData(ACTION_TRACK);
+//                    }
+//                }
+//        );
+//
+//        findViewById(R.id.pauseBtn).setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        sendData(PAUSE);
+//                    }
+//                }
+//        );
 
         findViewById(R.id.mic).setOnClickListener(
                 new View.OnClickListener() {
@@ -216,13 +216,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Get a set of bonded (paired) devices
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            TextView status = (TextView) findViewById(R.id.tvStatus);
+            TextView status = (TextView) findViewById(R.id.Status);
             status.setText("connecting");
             return;
         }
-        TextView status = (TextView) findViewById(R.id.tvStatus);
-        TextView status2 = (TextView) findViewById(R.id.tvStatus2);
-        status.setText("Vượt qua được check sau connecting trên set");
+        TextView status = (TextView) findViewById(R.id.Status);
         Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
 // có lớn hơn 0, và ko bị craft bởi hàm size()
         if (pairedDevices.size() > 0) {
@@ -230,10 +228,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Connecting to HC-06", Toast.LENGTH_SHORT).show();
             // Loop through the paired devices to find the HC-05 module
             for (BluetoothDevice device : pairedDevices) {
-                status.setText(device.getName());
-                status2.setText(device.getAddress());
                 if (device.getName().equals("hc-06")) {
-                    status2.setText("đã vào if");
                     try {
                         String add = device.getAddress();
                         BluetoothDevice hc = bluetoothAdapter.getRemoteDevice(add);
@@ -246,12 +241,12 @@ public class MainActivity extends AppCompatActivity {
 
                         inputStream = bluetoothSocket.getInputStream();
                         outputStream = bluetoothSocket.getOutputStream();
-
+                        status.setText("Status: Connected");
                         Log.d(TAG, "Connected to HC-06");
                         isConnected = true;
                         Toast.makeText(this, "Connected to HC-06", Toast.LENGTH_SHORT).show();
 
-                        status.setText("Connected");
+
                         status.setTextColor(getResources().getColor(R.color.green));
 
                         // Perform read and write operations with the BluetoothSocket
